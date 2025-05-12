@@ -2,6 +2,14 @@ import { useState } from "react"
 
 export const AddCategory = ({ onNewCategory }) => {
 
+    if (!onNewCategory) {
+        throw new Error('onNewCategory is required')
+    }
+
+    if (typeof onNewCategory !== 'function') {
+        throw new Error('onNewCategory is not a function')
+    }
+
     const [inputValue, setInputValue] = useState('')
 
     const onInputChange = ({ target }) => {
@@ -17,7 +25,7 @@ export const AddCategory = ({ onNewCategory }) => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} aria-label="form">
             <input
                 type="text"
                 placeholder="Buscar gifs"
@@ -25,6 +33,5 @@ export const AddCategory = ({ onNewCategory }) => {
                 onChange={onInputChange}
             />
         </form>
-
     )
 }

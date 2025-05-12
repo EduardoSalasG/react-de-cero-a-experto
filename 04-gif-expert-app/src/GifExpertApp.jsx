@@ -32,9 +32,6 @@ function GifExpertApp() {
                 ))
             }
         </>
-
-
-
     )
 }
 

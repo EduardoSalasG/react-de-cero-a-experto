@@ -13,8 +13,5 @@ describe('Pruebas en getGifs()', () => {
             title: expect.any(String),
             url: expect.any(String),
         })
-
-
     })
-
 })

@@ -5,8 +5,15 @@ import { GifItem } from './GifItem';
 import { getGifs } from '../helpers/getGifs'
 import { useFetchGifs } from '../hooks/useFetchGifs';
 
-
 export const GifGrid = ({ category }) => {
+
+    if (!category) {
+        throw new Error('category is required ')
+    }
+
+    if (typeof category !== 'string') {
+        throw new Error('category must be a string')
+    }
 
     const { images, isLoading } = useFetchGifs(category)
 
